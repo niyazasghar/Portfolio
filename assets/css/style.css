@@ -1223,67 +1223,72 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+/* ==================================================================== */
+/* ===  EXPERIENCE SECTION – layout fixes, spacing & text–wrapping  === */
+/* ==================================================================== */
 
-/* ----------  EXPERIENCE SECTION – remove forced empty space  ---------- */
+/* ----------  1. overall block – remove extra white space  ---------- */
 .experience{
-  min-height: auto;   /* let height shrink to the content */
-  padding-bottom: 0;  /* optional: trims any extra bottom padding */
+  min-height: auto;        /* shrink to content                       */
+  padding-bottom: 0;       /* trims bottom padding                    */
 }
 
 .experience .timeline{
-  margin-bottom: 0;   /* keeps the timeline itself tight */
+  margin-bottom: 0;        /* keeps the timeline tight                */
 }
 
-/* if you still see a sliver of space, un‑comment the line below
-.experience .container:last-child{ margin-bottom:0; }
-*/
+/* ----------  2. cards & pointers – offset boxes from the spine  ---- */
 
-/* ----------  EXPERIENCE SECTION – offset boxes from the timeline  ---------- */
+/* LEFT side ► push card 15 px to the right */
+.experience .container.left .content{  margin-left: 15px; }
 
-/* push boxes on the LEFT a bit rightward */
-.experience .container.left .content{
-  margin-left: 15px;      /* space between arrow‑tip and box edge   */
+/* RIGHT side ► push card 15 px to the left  */
+.experience .container.right .content{ margin-right: 15px; }
+
+/* keep the yellow arrow pointers the same length */
+.experience .container.left::before { right: 30px; }  /* 15‑px shift + orig 15  */
+.experience .container.right::before{ left : 30px; }
+
+/* ----------  3. HEADINGS – allow them to wrap inside the card  ------ */
+.experience .content .tag h3{
+  margin: 0;
+  font-size: 1.9rem;       /* slightly smaller than default           */
+  line-height: 1.25;
+  overflow-wrap: anywhere; /* let the browser break long sequences    */
+  word-break: break-word;  /* as a last resort, break inside words    */
 }
 
-/* push boxes on the RIGHT a bit leftward */
-.experience .container.right .content{
-  margin-right: 15px;     /* space between arrow‑tip and box edge   */
+/* ----------  4. bullet list – keep bullets clear of card edge  ------ */
+.experience .content .desc ul{
+  margin: 0.8rem 0 0 1.2rem;   /* top / right / bottom / left          */
+  padding: 0;
 }
 
-/* optional: keep arrow pointers the same length */
-.experience .container.left::before{
-  right: 30px;            /* original value + the 15‑px shift */
-}
-.experience .container.right::before{
-  left : 30px;            /* original value + the 15‑px shift */
-}
-
-
-/* ----------  EXPERIENCE — mobile fine‑tuning (≤ 600 px)  ---------- */
+/* ==================================================================== */
+/* ===  MOBILE  (≤ 600 px)  ========================================== */
 @media screen and (max-width: 600px){
 
-  /* shift the blue spine a bit closer to the edge */
-  .experience .timeline::after{
-    left: 24px;                 /* was 31px                       */
-  }
+  /* shift the blue spine a bit closer to the left edge */
+  .experience .timeline::after{ left: 24px; }
 
-  /* let each container fill the rest of the row and add breathing‑room */
+  /* each item fills the row – add breathing‑room at sides */
   .experience .container{
-    width: calc(100% - 48px);   /* full width minus spine+gap      */
-    padding-left: 5.5rem;       /* badge + 1 rem gap               */
+    width: calc(100% - 48px);  /* viewport – (spine 24 px + same right) */
+    padding-left: 5.5rem;      /* badge (25 px) + 1 rem gap + arrow     */
     padding-right: 1.5rem;
-    margin-left: 0;             /* no extra indent                 */
+    margin-left: 0;
   }
 
-  /* keep the circular badge centred on the new spine position         */
-  .experience .container::after{
-    left: -8px;                 /* moves badge 8 px back over line */
-  }
+  /* keep circular badge centred over the spine */
+  .experience .container::after{ left: -8px; }
 
-  /* hide the yellow arrow pointers (they’re too chunky on phones)     */
+  /* hide arrow pointers – too chunky on phones */
   .experience .left::before,
-  .experience .right::before{
-    display:none;
+  .experience .right::before{ display:none; }
+
+  /* make long headings fit comfortably */
+  .experience .content .tag h3{
+    font-size: 1.7rem;
   }
 }
 
