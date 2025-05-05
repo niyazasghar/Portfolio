@@ -1379,3 +1379,18 @@ form .button-area {
 /* if you still notice a sliver of space, un‑comment this line
 .resp-container{ margin-bottom:0; }
 */
+
+
+/* ============  GLOBAL ANCHOR‑OFFSET FOR FIXED NAVBAR  ============ */
+/* put this near the bottom of assets/css/style.css */
+
+section[id],                      /* all main sections that have an id  */
+.footer[id] {                     /* footer with id="contact"            */
+  scroll-margin-top: 7rem;        /* = navbar height (6.5rem) + 0.5rem   */
+}
+
+/* If you need extra breathing room on phones, tweak it in a media‑query */
+@media (max-width:600px){
+  section[id],
+  .footer[id]{ scroll-margin-top: 6rem; }
+}
