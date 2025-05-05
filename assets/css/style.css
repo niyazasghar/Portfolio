@@ -1223,3 +1223,124 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+
+/* ----------  EXPERIENCE SECTION – remove forced empty space  ---------- */
+.experience{
+  min-height: auto;   /* let height shrink to the content */
+  padding-bottom: 0;  /* optional: trims any extra bottom padding */
+}
+
+.experience .timeline{
+  margin-bottom: 0;   /* keeps the timeline itself tight */
+}
+
+/* if you still see a sliver of space, un‑comment the line below
+.experience .container:last-child{ margin-bottom:0; }
+*/
+
+/* ----------  EXPERIENCE SECTION – offset boxes from the timeline  ---------- */
+
+/* push boxes on the LEFT a bit rightward */
+.experience .container.left .content{
+  margin-left: 15px;      /* space between arrow‑tip and box edge   */
+}
+
+/* push boxes on the RIGHT a bit leftward */
+.experience .container.right .content{
+  margin-right: 15px;     /* space between arrow‑tip and box edge   */
+}
+
+/* optional: keep arrow pointers the same length */
+.experience .container.left::before{
+  right: 30px;            /* original value + the 15‑px shift */
+}
+.experience .container.right::before{
+  left : 30px;            /* original value + the 15‑px shift */
+}
+
+
+/* ----------  RESPONSIBILITY SECTION  ---------- */
+.responsibility{
+  background: linear-gradient(to bottom, #00416d, #1464a5); /* calm blue */
+  color:#fff;
+  padding-top:6rem;
+  padding-bottom:4rem;
+}
+
+.responsibility .heading{
+  color:#fff;
+}
+.responsibility .heading span{
+  color:#ffd200;
+}
+
+/* container uses flex for easy centring */
+.resp-container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:2.5rem;
+}
+
+/* individual card */
+.resp-card{
+  background:rgba(255,255,255,0.95);
+  color:#10163a;
+  border-radius:1rem;
+  width:100%;
+  max-width:650px;
+  display:flex;
+  align-items:center;
+  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+  padding:2rem 2.5rem;
+  transition:0.3s;
+}
+.resp-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* icon bubble */
+.resp-icon{
+  flex:0 0 80px;
+  height:80px;
+  width:80px;
+  border-radius:50%;
+  background:#ffd200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:3.2rem;
+  color:#00416d;
+  margin-right:2rem;
+}
+.resp-content h3{
+  font-size:2.2rem;
+  margin-bottom:0.8rem;
+}
+.resp-content p{
+  font-size:1.6rem;
+  line-height:1.6;
+  text-transform:none;
+}
+
+/* responsive tweaks */
+@media(max-width:600px){
+  .resp-card{
+    flex-direction:column;
+    text-align:center;
+    padding:2rem;
+  }
+  .resp-icon{
+    margin:0 0 1.5rem 0;
+  }
+}
+/* ----------  RESPONSIBILITY SECTION – remove blank space  ---------- */
+.responsibility{
+  min-height: auto;   /* let the section hug its content   */
+  padding-bottom: 5;  /* optional: trims any extra bottom padding */
+}
+
+/* if you still notice a sliver of space, un‑comment this line
+.resp-container{ margin-bottom:0; }
+*/
